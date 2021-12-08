@@ -2,12 +2,13 @@ const http = require('http');
  
 const requestListener = (request, response) => {
     response.setHeader('Content-Type', 'text/html');
-    response.statusCode = 200;
- 
+    
+    //deklarasi method dan url untuk request
     const { method, url } = request;
  
+    //yang dilakukan jika url http://localhost:5000
     if(url === '/') {
-        // TODO 2: logika respons bila url bernilai '/'
+        
         if(method === 'GET') {
             response.statusCode = 200;
             response.end('<h1>Ini adalah homepage!</h1>');
@@ -16,8 +17,10 @@ const requestListener = (request, response) => {
             response.end(`<h1>Halaman tidak dapat diakses dengan ${method} request</h1>`);
 
         }
-    } else if(url === '/about') {
-        // TODO 3: logika respons bila url bernilai '/about'
+    }
+    //yang dilakukan jika url http://localhost:5000/about 
+    else if(url === '/about') {
+        
         if(method === 'GET') {
             response.statusCode = 200;
             response.end('<h1>Halo! Ini adalah halaman about</h1>');
@@ -39,8 +42,10 @@ const requestListener = (request, response) => {
             response.statusCode = 400;
             response.end(`<h1>Halaman tidak dapat diakses menggunakan ${method} request</h1>`);
         }
-    } else {
-        // TODO 1: logika respons bila url bukan '/' atau '/about'
+    }
+    //yang dilakukan jika url selain http://localhost:5000/ dan http://localhost:5000/about 
+    else {
+        
         response.statusCode = 404;
         response.end('<h1>Halaman tidak ditemukan!</h1>');
     }
