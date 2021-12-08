@@ -22,7 +22,8 @@ const requestListener = (request, response) => {
     //         response.end(`<h1>Hai, ${name}!</h1>`);
     //     });
     // }
- 
+
+    console.log("haha");
 };
  
 const server = http.createServer(requestListener);
